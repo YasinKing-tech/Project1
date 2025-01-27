@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    body{
+    
+      background-color:#008B8B;
+    }
+</style>
+<body>
+
+    <div class="container mt-5">
+        <h2>Employee Details</h2>
+
+        <!-- Display the employee details if the employee is found -->
+        <div th:if="${empEntity != null}">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>ID:</strong> <span th:text="${empEntity.EmpId}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Name:</strong> <span th:text="${empEntity.EmpName}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Address:</strong> <span th:text="${empEntity.EmpAddress}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Email:</strong> <span th:text="${empEntity.EmpEmail}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Designation:</strong> <span th:text="${empEntity.EmpDesignation}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Salary:</strong> <span th:text="${empEntity.EmpSalary}"></span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Password:</strong> <span th:text="${empEntity.EmpPas}"></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Display a message if no employee was found -->
+        <div th:if="${empEntity == null}">
+            <p>No employee found with the provided ID.</p>
+        </div>
+
+        <!-- Button to go back to the employee list -->
+        <a href="/Getdetails" class="btn btn-primary">Back to Employee List</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

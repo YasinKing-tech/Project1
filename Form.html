@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: blue;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        form {
+            border: solid 2px #2196F3; /* Solid border for the form */
+            padding: 30px; /* Add padding inside the form */
+            border-radius: 8px; /* Rounded corners for the form */
+            background-color: white;
+            padding-bottom:10px;
+            padding-top:20px;
+           
+           
+            } 
+        .form-control {
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="">Registration Form </h2>
+
+    <form th:action="@{/register}" method="post" th:object="${employee}">
+        <!-- Employee Name -->
+        <div class="form-group">
+            <label for="EmpName">Employee Name</label>
+            <input type="text" th:field="*{EmpName}" class="form-control" id="EmpName" required placeholder="Enter Employee Name">
+        </div>
+
+        <!-- Employee Address -->
+        <div class="form-group">
+            <label for="EmpAddress">Employee Address</label>
+            <input type="text" th:field="*{EmpAddress}" class="form-control" id="EmpAddress" required placeholder="Enter Employee Address">
+        </div>
+
+        <!-- Employee Email -->
+        <div class="form-group">
+            <label for="EmpEmail">Employee Email</label>
+            <input type="email" th:field="*{EmpEmail}" class="form-control" id="EmpEmail" required placeholder="Enter Employee Email">
+        </div>
+
+        <!-- Employee Password -->
+        <div class="form-group">
+            <label for="EmpPas">Employee Password</label>
+            <input type="password" th:field="*{EmpPas}" class="form-control" id="EmpPas" required placeholder="Enter Password">
+        </div>
+
+        <!-- Employee Designation -->
+        <div class="form-group">
+            <label for="EmpDesignation">Employee Designation</label>
+            <input type="text" th:field="*{EmpDesignation}" class="form-control" id="EmpDesignation" required placeholder="Enter Employee Designation">
+        </div>
+
+        <!-- Employee Salary -->
+        <div class="form-group">
+            <label for="EmpSalary">Employee Salary</label>
+            <input type="number" th:field="*{EmpSalary}" class="form-control" id="EmpSalary" required step="0.01" placeholder="Enter Employee Salary">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">Register Employee</button>
+    </form>
+</div>
+
+</body>
+</html>
